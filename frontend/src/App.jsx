@@ -7,25 +7,25 @@ function App() {
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-500/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-2xl w-full space-y-10 my-4 flex flex-col items-center">
+      <div className="max-w-2xl w-full space-y-10 my-4">
         
-        {/* Image at the Top (Not in a Card) */}
-        <div className="w-full flex justify-center">
+        {/* Top-Left Brand Title & Subtitle with a clean divider */}
+        <div className="w-full flex flex-col justify-start items-start border-b border-slate-800/60 pb-6">
+          <h1 className="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-white">
+            Save our Neighbors
+          </h1>
+          <p className="text-xs font-semibold text-orange-400 uppercase tracking-widest mt-1">
+            Coalition for Solidarity
+          </p>
+        </div>
+
+        {/* Resized centered image as the main hero focus */}
+        <div className="w-full flex justify-center pt-2">
           <img 
             className="max-w-xs w-full h-auto object-cover rounded-xl" 
             src={image} 
             alt="Save our Neighbors Campaign"
           />
-        </div>
-
-        {/* Bold Page Title right underneath */}
-        <div className="text-center space-y-2">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
-            Save our Neighbors
-          </h1>
-          <p className="text-xs font-semibold text-orange-400 uppercase tracking-widest">
-            Coalition for Solidarity
-          </p>
         </div>
 
         {/* Core Content Sections */}
