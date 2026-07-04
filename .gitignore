@@ -7,9 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
 # Dependency directories
 node_modules/
 jspm_packages/
+=======
+# Node dependency directories
+node_modules/
+jspm_packages/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Rust build outputs and locks
+target/
+frontend/target/
+Cargo.lock
+**/*.rs.bk
+Cargo.bak
+
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 
 # VGO-specific files
 .pnp
@@ -40,7 +57,19 @@ dist-ssr/
 .env.development.local
 .env.test.local
 .env.production.local
+<<<<<<< HEAD
 
 # Vite / Vitest
 /public/mockServiceWorker.js
+=======
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Vite / Vitest
+/public/mockServiceWorker.js
+frontend/public/mockServiceWorker.js
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 coverage/
