@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
+import * as motion from "motion/react-client"
 
 
 import image from './image.webp';
@@ -7,18 +9,20 @@ function App() {
   return (
     <BrowserRouter>
 
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/summery">About</Link> |{" "}
+      <nav className='m-6 text-orange-400'>
+        <Link to="/">Home</Link> <span className='text-white'>|</span>{" "}
+        <Link to="/summery">Overview of 287G agreements</Link> <span className='text-white'>|</span>{" "}
+        <Link to="/faq">FAQ</Link>
       </nav>
 
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/summery" element={<Summry />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
 
-    </BrowserRouter>
+    </BrowserRouter >
 
 
   );
@@ -75,25 +79,25 @@ function Home() {
                 As a result, we oppose the oppression of the vulnerable and minorities, and we particularly,
                 vehemently oppose the current administration's treatment of migrants—our neighbors.
               </p>
-            </div>
+            </div >
             <br />
 
 
-          </div>
+          </div >
 
 
           {/* Right Column: Hero Image */}
-          <div className="md:col-span-5 flex justify-center md:justify-end">
+          < div className="md:col-span-5 flex justify-center md:justify-end" >
             <img
               className="max-w-sm w-full h-auto object-cover rounded-xl shadow-2xl"
               src={image}
               alt="Save our Neighbors Campaign"
             />
-          </div>
+          </div >
 
-        </div>
+        </div >
 
-      </div>
+      </div >
     </div >
 
   );
@@ -104,8 +108,48 @@ function Summry() {
   return (
     <div className='space-y-3 pl-6'>
       <p className='font-bold text-xl'>Summry </p>
-      <p className=''> test</p>
+      <p className=''> Summery of 287 G agreement here</p>
     </div>
+
+  );
+}
+
+
+
+function FAQ() {
+  let [isOpen, setIsOpen] = useState(false);
+  let handelClick = () => {
+    setIsOpen(prev => !prev);
+  }
+  const ball = {
+    width: 100,
+    height: 100,
+    backgroundColor: "#ff0055", // Changed to a hex color for testing
+    borderRadius: "50%",
+  };
+  return (
+    <div className='space-y-3 pl-8 pr-8'>
+      <p className=''>faq</p>
+
+
+      <button onClick={handelClick} className='block p-2 w-full border-3 mr-8 text-center rounded-lg'>
+        <span className='text-orange-400'> quesiton 1</span>
+      </button>
+      {isOpen &&
+        <div className='block w-full border-3 px-h mr-8 p-4 text-center rounded-lg'>
+          {/* <motion.div */}
+          {/*   initial={{ opacity: 0, scale: 0 }} */}
+          {/*   animate={{ opacity: 1, scale: 1 }} */}
+          {/*   transition={{ */}
+          {/*     duration: 0.4, */}
+          {/*     scale: { type: "spring", duration: 0.4, bounce: 0.5 }, */}
+          {/*   }} */}
+          {/*   style={ball} */}
+          {/* /> */}
+          answer
+        </div>
+      }
+    </div >
 
   );
 }
