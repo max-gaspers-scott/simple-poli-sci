@@ -8,10 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Dependency directories
 node_modules/
 jspm_packages/
 =======
+=======
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 # Node dependency directories
 node_modules/
 jspm_packages/
@@ -26,6 +29,9 @@ Cargo.lock
 **/*.rs.bk
 Cargo.bak
 
+<<<<<<< HEAD
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
+=======
 >>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 
 # VGO-specific files
@@ -58,10 +64,13 @@ dist-ssr/
 .env.test.local
 .env.production.local
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Vite / Vitest
 /public/mockServiceWorker.js
 =======
+=======
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 frontend/.env
 frontend/.env.local
 frontend/.env.development.local
@@ -71,5 +80,8 @@ frontend/.env.production.local
 # Vite / Vitest
 /public/mockServiceWorker.js
 frontend/public/mockServiceWorker.js
+<<<<<<< HEAD
+>>>>>>> 64628bd (feat: gitignore and simplified layout setup)
+=======
 >>>>>>> 64628bd (feat: gitignore and simplified layout setup)
 coverage/
