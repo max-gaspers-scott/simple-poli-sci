@@ -9,10 +9,10 @@ function App() {
   return (
     <BrowserRouter>
 
-      <nav className='m-6 text-orange-400'>
-        <Link to="/">Home</Link> <span className='text-white'>|</span>{" "}
-        <Link to="/summery">Overview of 287G agreements</Link> <span className='text-white'>|</span>{" "}
-        <Link to="/faq">FAQ</Link>
+      <nav className='text-xl m-6 text-orange-400'>
+        <Link className='hover:underline' to="/">Home</Link> <span className='text-white'>|</span>{" "}
+        <Link className='hover:underline' to="/summery">Overview of 287G agreements</Link> <span className='text-white'>|</span>{" "}
+        <Link className='hover:underline' to="/faq">FAQ</Link>
       </nav>
 
 
@@ -116,7 +116,8 @@ function Summry() {
 
 
 
-function FAQ() {
+// and array, should have used type anotaions/typescript so this comment would be unnesisary
+function Quesiton({ use_query, answer }) {
   let [isOpen, setIsOpen] = useState(false);
   let handelClick = () => {
     setIsOpen(prev => !prev);
@@ -128,15 +129,14 @@ function FAQ() {
     borderRadius: "50%",
   };
   return (
-    <div className='space-y-3 pl-8 pr-8'>
-      <p className=''>faq</p>
+    <div className='pb-8'>
 
 
-      <button onClick={handelClick} className='block p-2 w-full border-3 mr-8 text-center rounded-lg'>
-        <span className='text-orange-400'> quesiton 1</span>
+      <button onClick={handelClick} className='block p-2 w-full border-0 border-b-2 border-slate-700 hover:border-orange-400 text-left transition-colors duration-150'>
+        <span className='text-orange-400 text-xl'> {use_query}</span>
       </button>
       {isOpen &&
-        <div className='block w-full border-3 px-h mr-8 p-4 text-center rounded-lg'>
+        <div className='block w-full px-4 p-4 text-left'>
           {/* <motion.div */}
           {/*   initial={{ opacity: 0, scale: 0 }} */}
           {/*   animate={{ opacity: 1, scale: 1 }} */}
@@ -146,7 +146,7 @@ function FAQ() {
           {/*   }} */}
           {/*   style={ball} */}
           {/* /> */}
-          answer
+          {answer}
         </div>
       }
     </div >
@@ -154,4 +154,30 @@ function FAQ() {
   );
 }
 
+
+function FAQ() {
+  let qa_pars = [
+    { q: "what is love", a: "baby dont hurt me, dont hurt me, no more" },
+    { q: "what is the meaning of life, the univerc and everything", a: "42" },
+    { q: "Are we human", a: "or are we dancer" },
+    { q: "How could you just leave me standing", a: "alone in a world so cold" },
+  ];
+  let mapping = qa_pars.map((q) => {
+    return (
+      <div key={q.q}>
+        <Quesiton use_query={q.q} answer={q.a} />
+      </div>
+
+    );
+  })
+  return (
+    <div className='space-y-3 pl-8 pr-8' >
+      <p >faq</p>
+      {mapping}
+    </div>
+
+
+
+  );
+}
 
