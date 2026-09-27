@@ -4,7 +4,7 @@
 # -----------------------------------------------------------------------------
 # 1. Builder image: compile the binary in release mode
 # -----------------------------------------------------------------------------
-FROM rustlang/rust:nightly-slim AS builder
+FROM rust:1.98-slim AS builder
 
 # Install build dependencies that some crates (e.g. sqlx / openssl) may need
 RUN apt-get update && apt-get install -y --no-install-recommends pkg-config libssl-dev ca-certificates && rm -rf /var/lib/apt/lists/*
@@ -15,15 +15,12 @@ WORKDIR /app
 # Cache dependencies first – copy manifest files only
 COPY backend/Cargo.toml backend/Cargo.lock ./
 
-# Set the default toolchain to nightly
-RUN rustup default nightly
-
 # Dummy main to build dependency layers and speed up subsequent builds
 # RUN echo "fn main() {}" > src/main.rs #     && cargo build --release #     && rm -rf src
 
 # Copy the actual source tree and build the real binary
 COPY backend/ ./
-RUN cargo build -j 6 --release
+RUN cargo build --release
 
 
 # -----------------------------------------------------------------------------
