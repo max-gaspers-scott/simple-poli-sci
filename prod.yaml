@@ -14,33 +14,6 @@ services:
       timeout: 5s
       retries: 10
 
-  minio:
-    image: minio/minio:latest
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    volumes:
-      - minio_data:/data
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-
-  createbuckets:
-    image: minio/mc
-    depends_on:
-      - minio
-    entrypoint: >
-      /bin/sh -c "
-      sleep 10;
-        /usr/bin/mc alias set myminio http://minio:9000 minioadmin minioadmin || exit 1;
-        /usr/bin/mc mb myminio/bucket || true;
-        /usr/bin/mc anonymous set public myminio/bucket || exit 1;
-        echo 'Bucket creation completed successfully';
-      exit 0;
-      "
 
   app:
     image: maxthemerman/simple-poli-sci-app:latest

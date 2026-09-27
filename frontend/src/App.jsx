@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as motion from "motion/react-client"
 
 
-import image from './image.webp';
+import image from './Logo1.jpg';
 
 function App() {
   return (
@@ -157,10 +157,9 @@ function Quesiton({ use_query, answer }) {
 
 function FAQ() {
   let qa_pars = [
-    { q: "what is love", a: "baby dont hurt me, dont hurt me, no more" },
-    { q: "what is the meaning of life, the univerc and everything", a: "42" },
-    { q: "Are we human", a: "or are we dancer" },
-    { q: "How could you just leave me standing", a: "alone in a world so cold" },
+    { q: "What is a 287(g) agreement?", a: "It is an agreement between a local Law Enforcement Organization (LEO) and Immigration and Customs Enforcement (ICE) that would allow local law enforcement to enforce immigration law under the supervision of ICE. To be clear, LEOs already work with ICE through voluntary ICE Detainers and can cooperate with judicial warrants requesting local cooperation." },
+    { q: "What is a Welcome City Ordinance?", a: "A Welcome City Ordinance is a local law that can be written differently to fit the needs and circumstances of the city, but generally it prohibits city employees and officials from inquiring about a person's immigration status unless required by state or federal law. It prohibits local police and employees from cooperating or handing over residents' personal information without a proper judicial warrant to ICE agents or officials." },
+    { q: "Wouldn't cooperation with ICE make our cities safer?", a: "This is a common argument made, but there is no evidence that 287(g) agreements make our cities safer. On the contrary, there is evidence to suggest that it can make crime worse because immigrants are less likely to report crime or cooperate with local police. Things that do reduce crime include a strong and trusting relationship between the community and local police, which is why we advocate against the agreements from this personal angle. Local police are also, at a minimum, partially liable if they are sued for misconduct in immigration enforcement. As of now, insurance companies are already increasing insurance premiums for LEOs who have signed 287(g) agreements, which will not be reimbursed by the federal government. So residents are paying more for less security." },
   ];
   let mapping = qa_pars.map((q) => {
     return (
